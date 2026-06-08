@@ -8,7 +8,7 @@
 
 const char* ssid = "WiFi_NAME";
 const char* password = "WiFi_PASSWORD";
-const char* server = "MY_PHP_BACKEND_FILE_LOCATION";
+const char* server = "http://ip address/ultrasonic/dashboard.php";
 
 float distance;
 long duration;
@@ -48,12 +48,12 @@ void loop() {
   if (distance <= 400) {
     digitalWrite(led, HIGH);
     digitalWrite(buzzer, HIGH);
-    eventStatus = "Object detected near gate!";                
+    eventStatus = "intruder detected!";                
   }
   else {
     digitalWrite(led, LOW);
     digitalWrite(buzzer, LOW);
-    eventStatus = "Everything is okay on the gate!";  
+    eventStatus = "No intruder detected!";  
   }
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
